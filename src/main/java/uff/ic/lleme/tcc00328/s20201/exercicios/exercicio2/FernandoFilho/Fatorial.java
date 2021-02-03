@@ -9,11 +9,14 @@ public class Fatorial {
         Scanner in= new Scanner(System.in);
         System.out.println("Digite o número que quer saber o fatorial :");
         x = in.nextInt();
-        a=x;
-        do{
+        a = x;
+        while(x>1){
             a=a*(x-i);
-            i++;
-        }while(i!=x);
+            i--;
+        }
+        if(x==0){
+            a=1;
+        }
         System.out.println("O fatorial de "+x+" é :");
         System.out.println(a);
         in.close();
