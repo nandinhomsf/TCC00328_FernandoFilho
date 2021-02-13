@@ -60,6 +60,9 @@ public class Histograma {
         for(int i=1;i<categs.length;i++){
             if(numero>=categs[i-1]&&numero<categs[i]){
                 return i;
+            } 
+            if(numero>=categs[i-1]&&numero<=categs[i]){
+                return i;
             }
         }
         return -1;
