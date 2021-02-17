@@ -2,7 +2,7 @@ package uff.ic.lleme.tcc00328.s20201.exercicios.exercicio7.FernandoFilho;
 
 import java.util.Scanner;
 
-public class MDCFor {
+public class MDCfor {
     public static void main (String [] args){
         int x,y,r=1;
         Scanner in1= new Scanner(System.in);

@@ -2,7 +2,7 @@ package uff.ic.lleme.tcc00328.s20201.exercicios.exercicio8.FernandoFilho;
 
 import java.util.Scanner;
 
-public class PrimoFor {
+public class Primofor {
     public static void main (String [] args){
         Scanner in = new Scanner(System.in);
         int p,i=2,resp=0;
