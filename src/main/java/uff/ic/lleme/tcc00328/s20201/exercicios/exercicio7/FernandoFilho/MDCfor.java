@@ -14,7 +14,7 @@ public class MDCFor {
         System.out.println("O MDC de Euclides entre "+x+" e "+y+" é :");
         in1.close();
         in.close();
-        for(;r!=0;){
+        while(r!=0){
             r=x%y;
             x=y;
             y=r;

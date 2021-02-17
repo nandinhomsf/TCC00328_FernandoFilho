@@ -9,7 +9,7 @@ public class PrimoFor {
         System.out.println("Digite um natural maior que 1 para saber se é primo :");
         p=in.nextInt();
         in.close();
-        for(;p>i;){
+        while(p>i){
             if(p%i==0){
                 resp=1;
             }
