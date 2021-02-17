@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Fatorial {
 
     public static void main (String [] args){
-        int i=1,x,a;
+        int x,a;
         Scanner in= new Scanner(System.in);
         System.out.println("Digite o número que quer saber o fatorial :");
         x = in.nextInt();
         a = x;
         while(x>1){
-            a=a*(x-i);
-            i--;
+            a=a*(x-1);
+            x--;
         }
         if(x==0){
             a=1;
