@@ -17,7 +17,7 @@ public class Fatorial {
         if(x==0){
             a=1;
         }
-        System.out.println("O fatorial de "+x+" é :");
+        System.out.println("O fatorial é :");
         System.out.println(a);
         in.close();
         }
