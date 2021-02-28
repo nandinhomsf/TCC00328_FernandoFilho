@@ -1,0 +1,5 @@
+TCC00328 POO Programacao Orientada a Objetos
+TCC00288 BDii Banco de Dados II
+RSD00531 ACC Aremeços Contra Corrente
+RSD00431 ACD Aremeços Contra Dividida
+ABC00382 AR Alfabeto Romano
