@@ -46,9 +46,9 @@ class SistemaAcademico {
 
         for(int i=0;i<5;i++){
             disciplina[i]= new Disciplina();
-            disciplina[i].codigo = in.next();
-            disciplina[i].sigla = in.next();
-            disciplina[i].nome = in.nextLine();
+            disciplina[i].codigo=in.next();
+            disciplina[i].sigla= in.next();
+            disciplina[i].nome=in.nextLine();
         }
         input.close();
         in.close();

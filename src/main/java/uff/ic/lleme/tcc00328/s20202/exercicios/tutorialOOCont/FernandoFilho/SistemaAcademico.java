@@ -35,10 +35,10 @@ class SistemaAcademico {
 
         for (int i = 0; i < 5; i++) {
             aluno[i] = new Aluno();
-            aluno[i].cpf = in.nextLong();
-            aluno[i].matricula = in.nextInt();
-            aluno[i].unidade = in.next();
-            aluno[i].nome = in.nextLine();
+            aluno[i].setCpf(in.nextLong());
+            aluno[i].setMatricula(in.nextInt());
+            aluno[i].setUnidade(in.next());
+            aluno[i].setNome(in.nextLine());
         }
         input.close();
         in.close();
@@ -52,9 +52,9 @@ class SistemaAcademico {
 
         for (int i = 0; i < 5; i++) {
             disciplina[i] = new Disciplina();
-            disciplina[i].codigo = in.next();
-            disciplina[i].sigla = in.next();
-            disciplina[i].nome = in.nextLine();
+            disciplina[i].setCodigo(in.next());
+            disciplina[i].setSigla(in.next());
+            disciplina[i].setNome(in.nextLine());
         }
         input.close();
         in.close();
@@ -66,11 +66,11 @@ class SistemaAcademico {
 
         for(int i=0;i<5;i++){
             turma[i]= new Turma();
-            turma[i].codigo=in.next();
-            turma[i].disciplina=disciplina[i];
+            turma[i].setCodigo(in.next());
+            turma[i].setDisciplina(disciplina[i]);
             in.next();
-            turma[i].semestre=in.nextInt();
-            turma[i].horario=in.next();
+            turma[i].setSemestre(in.nextInt());
+            turma[i].setHorario(in.next());
             in.next();
             in.next();
         }
@@ -87,12 +87,12 @@ class SistemaAcademico {
 
         for (int i = 0; i < 5; i++) {
             inscricoes[i] = new Inscricao();
-            inscricoes[i].turma= turma[i];
+            inscricoes[i].setTurma(turma[i]);
             in.next();
             in.next();
-            inscricoes[i].aluno = aluno[i];
-            inscricoes[i].data_matricula = in.next();
-            inscricoes[i].data_cancelamento = in.next();
+            inscricoes[i].setAluno(aluno[i]);
+            inscricoes[i].setData_matricula(in.next());
+            inscricoes[i].setData_cancelamento(in.next());
         }
         input.close();
         in.close();
@@ -105,22 +105,24 @@ class SistemaAcademico {
             String[] conjcod = new String[5];
 
             for(int i=0;i<5;i++){
-                conjmat[i]=inscricoes[i].aluno.matricula;
-                conjcod[i]=inscricoes[i].turma.disciplina.codigo;
+                conjmat[i]=inscricoes[i].getAluno().getMatricula();
+                conjcod[i]=inscricoes[i].getTurma().getDisciplina().getCodigo();
             }
 
             for(int i=0;i<5;i++){
-                System.out.println("Digite a nota 1 do aluno de matrícula : "+aluno[i].matricula+" da turma de código : "+disciplina[i].codigo);
-                inscricoes[i].notas[0]=in.nextFloat();
+                System.out.println("Digite a nota 1 do aluno de matrícula : "+aluno[i].getMatricula()
+                        + " da turma de código : " + disciplina[i].getCodigo());
+                inscricoes[i].getNotas()[0] = in.nextFloat();
                 System.out.println("Digite a nota 2 :");
-                inscricoes[i].notas[1]=in.nextFloat();
+                inscricoes[i].getNotas()[1] = in.nextFloat();
             }
             in.close();    
         }   
         private static void calcularMedias(){
             for(int i=0;i<5;i++){
-            System.out.println("A media da matricula "+aluno[i].matricula+" na disciplina de codigo "+disciplina[i].codigo);
-            System.out.println((inscricoes[i].notas[0]+inscricoes[i].notas[1])/2);
+            System.out.println("A media da matricula "+aluno[i].getMatricula() + " na disciplina de codigo "
+                    + disciplina[i].getCodigo());
+            System.out.println((inscricoes[i].getNotas()[0] + inscricoes[i].getNotas()[1]) / 2);
         }
     }
     
