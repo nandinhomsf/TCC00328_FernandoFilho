@@ -1,5 +1,5 @@
 1!Bacalhau%2!Suco%1!Pastel 
 1!Vinho%3!Nuggets%1!Bala
-4!Pastel%2!Agua%2!PratoExecutivo
+4!Pastel%2!Agua%2!Prato
 2!Frango%3!Agua%2!Bala 
 2!Bacalhau%3!Vinho%1!Agua

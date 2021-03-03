@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Restaurante {
 
-    public static String CAMINHO_DO_ARQUIVO = "src/main/java/uff/ic/lleme/tcc00328/s20202/provas/P1/FernandoFilho/";
+    public static String Cordenada = "src/main/java/uff/ic/lleme/tcc00328/s20202/provas/P1/FernandoFilho/";
 
     public static Prato[] pratos = new Prato[9];
     public static Pedido[] pedidos = new Pedido[5];
@@ -48,26 +48,28 @@ public class Restaurante {
             if (pratos[i] == null)
                 break;
 
-            System.out.printf("O prato: " + pratos[i].getNome() + ", teve um percentual de pedido de %.2f\n", percentual[i]);
+            System.out.printf("O prato: " + pratos[i].getNome() + ", tem o percentual de %.2f\n", percentual[i]);
         }
     }
 
     private static void calcularPreco() {
         Scanner scanner = new Scanner(System.in);
-        int idDoPedido;
-        double valorDaConta = 0.0D;
+        int comida;
+        double valorDaConta = 0.0;
         System.out.print("Digite o pedido : ");
-        idDoPedido = scanner.nextInt();
-        idDoPedido--;
-        System.out.print("\nPedido:\n");
-        Pedido pedido = pedidos[idDoPedido];
+        comida = scanner.nextInt();
+        comida--;
+        Pedido pedido = pedidos[comida];
         for (Item item : pedido.getPedidos()) {
+            if(item.getPratopedido()==null){
+                continue;
+            }
             double precoDoItem = item.getQuantidade() * item.getPratopedido().getPreco();
             valorDaConta += precoDoItem;}
         System.out.printf("Total : R$ %.2f\n", valorDaConta);
         scanner.close();}
     private static void lerPratos() throws IOException {
-        InputStream input = new FileInputStream(CAMINHO_DO_ARQUIVO + "pratos.txt");
+        InputStream input = new FileInputStream(Cordenada + "Pratos.txt");
         Scanner in = new Scanner(input);
         int i = 0;
         while (in.hasNext()) {
@@ -83,7 +85,7 @@ public class Restaurante {
     }
 
     private static void lerPedidos() throws IOException {
-        InputStream input = new FileInputStream(CAMINHO_DO_ARQUIVO + "pedidos.txt");
+        InputStream input = new FileInputStream(Cordenada + "Pedidos.txt");
         Scanner in = new Scanner(input);
 
         int i = 0;
