@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.provas.P1.FernandoFilho;
+package uff.ic.lleme.tcc00328.s20202.provas.p1.FernandoFilho;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +9,7 @@ public class Restaurante {
 
     public static String Cordenada = "src/main/java/uff/ic/lleme/tcc00328/s20202/provas/P1/FernandoFilho/";
 
-    public static Prato[] pratos = new Prato[9];
+    public static Prato[] pratos = new Prato[8];
     public static Pedido[] pedidos = new Pedido[5];
 
     public static void main(String[] args) throws IOException {
