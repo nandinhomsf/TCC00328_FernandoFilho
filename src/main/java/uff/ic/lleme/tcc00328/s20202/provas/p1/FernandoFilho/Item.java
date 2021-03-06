@@ -1,6 +1,6 @@
-package uff.ic.lleme.tcc00328.s20202.provas.p1_.FernandoFilho;
+package uff.ic.lleme.tcc00328.s20202.provas.p1.FernandoFilho;
 
-import uff.ic.lleme.tcc00328.s20202.provas.p1_.FernandoFilho.Prato;
+import uff.ic.lleme.tcc00328.s20202.provas.p1.FernandoFilho.Prato;
 
 public class Item {
 
