@@ -1,8 +1,6 @@
 package uff.ic.lleme.tcc00328.s20202.provas.p1.FernandoFilho;
 
-import uff.ic.lleme.tcc00328.s20202.provas.p1.FernandoFilho.Prato;
-
-public class Item {
+public class Item extends Prato{
 
     private int quantidade;
     private Prato pratopedido;
