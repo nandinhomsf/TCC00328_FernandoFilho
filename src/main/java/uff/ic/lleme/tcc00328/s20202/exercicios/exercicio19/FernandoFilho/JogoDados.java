@@ -2,7 +2,7 @@ package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio19.FernandoFilho;
 
 public class JogoDados {
     public static void main(String[] args) {
-        int ponto, soma = 0;
+        int ponto, soma = 0, count = 1;
         Dados dados = new Dados();
         dados.JogarDados();
         System.out.println("Face do dado 1 : " + dados.getFace1() + "\nFace do dado 2 : " + dados.getFace2()
@@ -20,8 +20,10 @@ public class JogoDados {
         ponto = dados.getFace1() + dados.getFace2();
         System.out.println("\nSeu ponto é " + ponto);
         while (ponto != soma && soma != 7) {
+            count++;
             dados.JogarDados();
             soma = dados.getFace1() + dados.getFace2();
+            System.out.println("\nJodada : " + count);
             System.out.println("\nPonto : " + ponto + "\nFace do dado 1 : " + dados.getFace1() + "\nFace do dado 2 : "
                     + dados.getFace2() + "\nSoma dos dados : " + soma);
             if (ponto == soma) {
