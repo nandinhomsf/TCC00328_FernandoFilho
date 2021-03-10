@@ -28,9 +28,8 @@ public class Restaurante {
                 break;
 
             for (Item item : pedido.getPedidos()) {
-                if(item.getPratopedido()==null){
+                if (item.getPratopedido() == null)
                     continue;
-                }
                 pratosQuantia[pegarIndiceDoPrato(item.getPratopedido())] += item.getQuantidade();
                 totalPedidos += item.getQuantidade();
             }
@@ -61,13 +60,15 @@ public class Restaurante {
         comida--;
         Pedido pedido = pedidos[comida];
         for (Item item : pedido.getPedidos()) {
-            if(item.getPratopedido()==null){
+            if (item.getPratopedido() == null)
                 continue;
-            }
             double precoDoItem = item.getQuantidade() * item.getPratopedido().getPreco();
-            valorDaConta += precoDoItem;}
+            valorDaConta += precoDoItem;
+        }
         System.out.printf("Total : R$ %.2f\n", valorDaConta);
-        scanner.close();}
+        scanner.close();
+    }
+
     private static void lerPratos() throws IOException {
         InputStream input = new FileInputStream(Cordenada + "Pratos.txt");
         Scanner in = new Scanner(input);
@@ -110,23 +111,21 @@ public class Restaurante {
     }
 
     private static Prato getPrato(String nomeDoPrato) {
-        for (Prato prato : pratos) {
+        for (Prato prato : pratos)
             if (prato == null)
                 continue;
             else if (prato.getNome().equals(nomeDoPrato))
-                    return prato;
-        }
+                return prato;
         return null;
     }
 
     private static int pegarIndiceDoPrato(Prato prato) {
-        for (int i = 0; i < pratos.length; i++) {
+        for (int i = 0; i < pratos.length; i++)
             if (pratos[i] == null)
                 return 1;
 
             else if (pratos[i].getNome().equals(prato.getNome()))
-                    return i;
-        }
+                return i;
 
         return 1;
     }
