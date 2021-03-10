@@ -5,6 +5,7 @@ public class JogoDados {
         int ponto, soma = 0, count = 1;
         Dados dados = new Dados();
         dados.JogarDados();
+        System.out.println("\n Jogada : 1");
         System.out.println("Face do dado 1 : " + dados.getFace1() + "\nFace do dado 2 : " + dados.getFace2()
                 + "\nSoma dos dados : " + (dados.getFace1() + dados.getFace2()));
         if (dados.getFace1() + dados.getFace2() == 7 || dados.getFace1() + dados.getFace2() == 11) {
