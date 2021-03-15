@@ -1,10 +1,7 @@
 package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio19.FernandoFilho;
 
-public class Partida extends Mesa{
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
+public class Partida extends Mesa {
+
     private int jogadas;
 
     public int getJogadas() {

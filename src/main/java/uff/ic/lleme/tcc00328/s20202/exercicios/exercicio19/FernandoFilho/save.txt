@@ -1,0 +1,5 @@
+Mesa : 1
+Nome do jogador : Ruan
+Jogadas do jogador : 5
+Resultado do jogador : PERDEU
+

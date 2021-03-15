@@ -1,12 +1,7 @@
 package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio19.FernandoFilho;
 
-import java.io.Serializable;
+public class Jogador {
 
-public class Jogador implements Serializable {
-    /**
-     *
-     */
-    private static final long serialVersionUID = 1L;
     private String nome;
     private Resultado resultado;
     private int jogadas;
