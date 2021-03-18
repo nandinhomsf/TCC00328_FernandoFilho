@@ -1,0 +1,15 @@
+Reserva 1 possui 0 quartos comuns
+Reserva 1 possui 0 suites
+Reserva 1 possui 3 quartos duplos
+Reserva 2 possui 1 quartos comuns
+Reserva 2 possui 1 suites
+Reserva 2 possui 0 quartos duplos
+Reserva 3 possui 1 quartos comuns
+Reserva 3 possui 0 suites
+Reserva 3 possui 0 quartos duplos
+Reserva 4 possui 1 quartos comuns
+Reserva 4 possui 1 suites
+Reserva 4 possui 1 quartos duplos
+Reserva 5 possui 3 quartos comuns
+Reserva 5 possui 2 suites
+Reserva 5 possui 0 quartos duplos
