@@ -1,32 +1,52 @@
 package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio21.FernandoFilho;
 
 public class Turma {
-    private String codigo;
-    private String horario;
-    private Estudante[] alunos;
 
-    public String getCodigo() {
-        return this.codigo;
-    }
+    private final Professor professor;
 
-    public void setCodigo(String codigo) {
+    private final String codigo;
+    private final String sala;
+    private final String horario;
+
+    private int numAlunos = 0;
+
+    public Turma(final Professor professor, final String codigo, final String sala, final String horario) {
+        this.professor = professor;
         this.codigo = codigo;
-    }
-
-    public String getHorario() {
-        return this.horario;
-    }
-
-    public void setHorario(String horario) {
+        this.sala = sala;
         this.horario = horario;
     }
 
-    public Estudante[] getAlunos() {
-        return this.alunos;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setAlunos(Estudante[] alunos) {
-        this.alunos = alunos;
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getSala() {
+        return sala;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public int getNumAlunos() {
+        return numAlunos;
+    }
+
+    public void adicionarAluno() {
+        ++this.numAlunos;
+    }
+
+    public void removerAluno() {
+        --this.numAlunos;
+    }
+
+    public boolean estaCompleta() {
+        return getNumAlunos() == 30;
     }
 
 }

@@ -1,152 +1,217 @@
 package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio21.FernandoFilho;
 
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static String arquivo = "src/main/java/uff/ic/lleme/tcc00328/s20202/exercicios/exercicio21/FernandoFilho/";
-    public static void main(String[] args) throws IOException {
-        login();
-    }
 
-    private static void login() throws IOException {
-        System.out.println("Escolha o modo de entrada : \n1-Professor\n2-Aluno");
-        int num;
-        Scanner in = new Scanner(System.in);
-        num=in.nextInt();
-        switch (num) {
-        case 1:{
-            System.out.println("Digite seu nome professor :(nomes no arquivo Professores.txt)");
-            String nome=in.next();
-            in.close();
-            checaProf(nome);
-            System.exit(0);
-        }
-        case 2:{
-            System.out.println("Digite seu nome aluno :(nomes no arquivo Alunos.txt)");
-            String nome=in.next();
-            in.close();
-            checaAluno(nome);
-            System.exit(0);
-        }
-        default:
-            System.out.println("Você digitou errado.");}
-        
-    }
+    public static String cordenada = "src/main/java/uff/ic/lleme/tcc00328/s20202/exercicios/exercicio21/FernandoFilho/";
 
-    private static void checaAluno(String nome) throws IOException {
-        InputStream input = new FileInputStream(arquivo+"Alunos.txt");
-        Scanner in = new Scanner (System.in);
-        in.close();
-        in = new Scanner (input);
-        String nome1;
-        while(in.hasNext()){
-            nome1=in.next();
-            if (nome.equals(nome1)){
-                System.out.println("Olá "+nome+", bem vindo ao seu portal de matrícula, siga uma das opções:");
-                System.out.println("1-Se matricular nas matérias\n2-Alterar a matrícula");
-            }
-        }
-        in.close();
-        int a=in.nextInt();
-        System.out.println(a);
-        if(a==1){
-            in.close();
-            registromatricula(nome);
-        }
-        if(a==2){
-            in.close();
-            alteramatricula(nome);
-        }
-        
-    }
+    public static List<Matricula> listaDeMatriculas = new ArrayList<>();
+    public static List<Disciplina> listaDeDisciplinas = new ArrayList<>();
 
-    private static void alteramatricula(String nome) throws IOException {
-        InputStream input = new FileInputStream(arquivo+"SRA.txt");
-        OutputStream output = new FileOutputStream(arquivo+"SRA.txt");
-        OutputStreamWriter writer = new OutputStreamWriter(output);
-        BufferedWriter bw = new BufferedWriter(writer);
-        Scanner in = new Scanner(input);
-        Scanner on = new Scanner (System.in);
-        System.out.println("Digite qual matéria gostaria de excluir :(SRA.txt)");
-        String mat = on.next();
-        while(in.hasNext()){
-            if(in.nextLine().equals("Aluno(a) "+nome+" matriculado(a) na Disciplina "+mat)){
-                bw.write("");
-            } 
-        }
-        bw.close();
-        in.close();
-        on.close();
-    }
+    static {
+        int i = 0;
+        while (i != -1) {
+            try {
+                InputStream input = new FileInputStream(cordenada + "Disciplina"+i+".txt");
+                Scanner in = new Scanner(input);
 
-    private static void registromatricula(String nome) throws IOException {
-        int i=1,j=0;
-        String vetor[] = new String[6];
-        InputStream input = new FileInputStream(arquivo+"Disciplinas.txt");
-        Scanner in = new Scanner(input);
-        OutputStream output = new FileOutputStream(arquivo+"SRA.txt");
-        OutputStreamWriter writer = new OutputStreamWriter(output);
-        System.out.println("Disciplinas disponíveis :");
-        while(in.hasNext()){
-            System.out.println("Curso de "+in.nextLine());
-            while(!in.nextLine().equals("\n")){
-                vetor[i-1]=in.nextLine();
-                System.out.println(i+"-"+vetor[i]);
-                i++;
-            } 
-        }
-        in.close();
-        BufferedWriter bw = new BufferedWriter(writer);
-        Scanner on= new Scanner(System.in);
-        try{for(i=0;i<6;i++){
-            System.out.println("Escoha aqui sua "+i+1+"ª disciplina(coloque o número)");
-                j=on.nextInt();
-                bw.write("Aluno(a) "+nome+" matriculado(a) na Disciplina "+vetor[j-1]);
-        }}
-        finally{bw.close();
-        on.close();}
-    }
+                String codigo = in.nextLine();
+                String nomeDaDisciplina = in.nextLine();
+                int prioridade = in.nextInt();
 
-    private static void checaProf(String nome) throws FileNotFoundException {
-        String nome1;
-        String turma;
-        int f=0;
-        InputStream input = new FileInputStream(arquivo+"Professores.txt");
-        Scanner in = new Scanner (input);
-        while(in.hasNext()||f!=0){
-            nome1=in.next();
-            if (nome.equals(nome1)){
-                turma=in.next();
-                System.out.println("Ola professor(a) "+nome+" vamos checar seus alunos.");
-                in.close();
-                f=1;
-                checamatricula(nome,turma);
-                System.exit(0);      
-            }}
-            System.out.println("Você não está registrado como um Professor.");
-        in.close();
-            
-    }
 
-    private static void checamatricula(String nome,String turma) throws FileNotFoundException {
-        InputStream input = new FileInputStream(arquivo+"SRA.txt");
-        Scanner in = new Scanner(input);
-        while(in.hasNext()){
-            if(nome+" "+turma==in.nextLine()){
-                while(!in.nextLine().equals("\n")){
-                    System.out.println(in.nextLine());
+                listaDeDisciplinas.add(new Disciplina(prioridade == 1, codigo, nomeDaDisciplina));
+
+                while (in.hasNextLine()) {
+                    String codigoDaTurma = in.next();
+                    String salaDaTurma = in.next();
+                    String horarioDaTurma = in.next();
+                    long cpfDoProfessor = in.nextLong();
+                    String nomeDoProfessor = in.nextLine();
+
+                    Professor professor = new Professor(nomeDoProfessor, cpfDoProfessor);
+                    Turma turma = new Turma(professor, codigoDaTurma, salaDaTurma, horarioDaTurma);
+                    listaDeDisciplinas.get(i).adicionarTurma(turma);
                 }
+
+                input.close();
                 in.close();
+                ++i;
+            } catch (IOException ignored) {
+                i = -1;
             }
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        AnalisadorMatricula analisadorMatricula = new AnalisadorMatricula();
+        Scanner in = new Scanner(System.in);
+
+        int i;
+        do {
+            System.out.print("Digite um número do menu a baixo :");
+            System.out.println("1-Criar matricula");
+            System.out.println("2-Alterar matricula");
+            System.out.println("3-Consultar alunos matriculados em uma disciplina");
+            System.out.println("4-Salvar sistema");
+            i = in.nextInt();
+
+            switch (i) {
+                case 1 -> criarMatricula(analisadorMatricula, in);
+                case 2 -> alterarMatricula(analisadorMatricula, in);
+                case 3 -> consultarAlunosMatriculadosNaDisciplina(in);
+                case 4 -> salvarSistema();
+            }
+
+            System.out.println("0-Encerrar programa");
+        } while (i != 0);
+
+        in.close();
+    }
+
+    private static void criarMatricula(AnalisadorMatricula analisadorMatricula,Scanner scanner) {
+        scanner.nextLine();
+        System.out.print("Digite seu nome :");
+        String nome = scanner.nextLine();
+        System.out.print("Digite seu CPF :");
+        long cpf = scanner.nextLong();
+
+        Matricula matricula = analisadorMatricula.criarMatricula(nome, cpf);
+        if (matricula == null) {
+            System.out.println("Estudante cadastrado com sucesso.");
+            return;
+        }
+
+        analisadorMatricula.adicionarDisciplinas(matricula, scanner);
+        System.out.println();
+    }
+
+    private static void alterarMatricula(AnalisadorMatricula analisadorMatricula,Scanner scanner) {
+        scanner.nextLine();
+        System.out.println("Matriculas cadastradas");
+        int i = 0;
+        for (Matricula matricula : Main.listaDeMatriculas) {
+            System.out.println(i++ + "-Matricula: " + matricula.getId() + " Nome: " + matricula.getEstudante().getNome());
+        }
+
+        int id;
+        do {
+            System.out.print("Insira o número da matricula que deseja alterar, entre 0 e " + (Main.listaDeMatriculas.size() - 1) + ":");
+            id = scanner.nextInt();
+        } while (id < 0 || id >= Main.listaDeMatriculas.size());
+
+        Matricula matricula = Main.listaDeMatriculas.get(id);
+
+        System.out.print("Insira 0 para adicionar uma disciplina, ou outro número para remover: ");
+        int op = scanner.nextInt();
+
+        if (op == 0) {
+            analisadorMatricula.adicionarDisciplinas(matricula, scanner);
+        } else {
+            analisadorMatricula.removerDisciplina(matricula, scanner);
+        }
+    }
+
+    private static void consultarAlunosMatriculadosNaDisciplina(Scanner scanner) {
+        System.out.println();
+        for (Disciplina disciplina : listaDeDisciplinas) {
+            System.out.println(disciplina.getCodigo() + "-" + disciplina.getNome());
+        }
+        System.out.print("Insira o código da disciplina: ");
+
+        String codigo = scanner.next();
+        for (Disciplina disciplina : listaDeDisciplinas) {
+            if (disciplina.getCodigo().equals(codigo)) {
+                for (Estudante estudante : disciplina.getAlunos()) {
+                    System.out.println("Matricula: " + estudante.getMatricula().getId() + " Nome: " + estudante.getNome());
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    private static void salvarSistema() {
+        int i = 0;
+        while (i != -1) {
+            try {
+                if (i >= listaDeDisciplinas.size()) {
+                    break;
+                }
+                OutputStream output = new FileOutputStream(cordenada + "Disciplina" + i + ".txt");
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(output));
+                Disciplina disciplina = listaDeDisciplinas.get(i);
+
+                bw.write(disciplina.getCodigo());
+                bw.newLine();
+                bw.write(disciplina.getNome());
+                bw.newLine();
+                if (disciplina.getPrioridade() == Disciplina.Prioridade.PREFERENCIAL) {
+                    bw.write("1");
+                } else {
+                    bw.write("0");
+                }
+
+                for (Turma turma : disciplina.getListaDeTurmas()) {
+                    bw.newLine();
+                    bw.write(turma.getCodigo() + " " + turma.getSala() + " " +
+                            turma.getHorario() + " " + turma.getProfessor().getCPF() + " " +
+                            turma.getProfessor().getNome());
+                }
+
+                bw.close();
+                output.close();
+                i++;
+            }
+            catch (IOException ignored) {
+                i = -1;
+            }
+        }
+
+        i = 0;
+        while (i != -1) {
+            try {
+                if (i >= listaDeMatriculas.size()) {
+                    break;
+                }
+                OutputStream output = new FileOutputStream(cordenada + "Matricula" + i + ".txt");
+                BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(output));
+
+                Matricula matricula = listaDeMatriculas.get(i);
+                Estudante estudante = matricula.getEstudante();
+
+                bw.write(estudante.getNome());
+                bw.newLine();
+                bw.write(String.valueOf(estudante.getCPF()));
+
+                for (int j = 0; j < 4; j++) {
+                    Disciplina disciplina = matricula.getDisciplinaPreferencial(j);
+                    if (disciplina == null) {
+                        continue;
+                    }
+                    bw.newLine();
+                    bw.write(disciplina.getCodigo() + " " + matricula.getTurmaPreferencial(j));
+                }
+                for (int j = 0; j < 2; j++) {
+                    Disciplina disciplina = matricula.getDisciplinasAlternativas(j);
+                    if (disciplina == null) {
+                        continue;
+                    }
+                    bw.newLine();
+                    bw.write(disciplina.getCodigo() + " " + matricula.getTurmaAlternativa(j));
+                }
+
+                bw.close();
+                output.close();
+                ++i;
+            } catch (IOException ignored) {
+                i = -1;
+            }
+        }
+
     }
 
 }
