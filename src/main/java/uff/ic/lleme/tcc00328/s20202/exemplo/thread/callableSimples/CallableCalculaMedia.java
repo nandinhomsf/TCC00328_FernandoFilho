@@ -11,10 +11,10 @@ public class CallableCalculaMedia implements Callable<Double> {
     }
 
     public Double call() {
-        double resultado = 0.0;
+        double resultado= 0.0;
         for (Double numero : numeros)
             resultado += numero;
-        return resultado / numeros.length;
+        return resultado /= numeros.length;
     }
 
 }
