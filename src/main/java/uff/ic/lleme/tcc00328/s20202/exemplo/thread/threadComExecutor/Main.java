@@ -41,7 +41,6 @@ public class Main {
         while (received < 6 && !errors) {
             Future<Resultado> resultFuture = completionService.take();
             try {
-                Resultado result = resultFuture.get();
                 System.out.println("disciplina: " + resultFuture.get().id + " media " + resultFuture.get().resultado);
                 received++;
             } catch (Exception e) {

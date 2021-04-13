@@ -5,6 +5,10 @@ import java.util.concurrent.RecursiveAction;
 
 public class ForkMean extends RecursiveAction {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private int inicio;
     private int fim;
     private List<Aluno> alunos;

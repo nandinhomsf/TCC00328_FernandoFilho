@@ -2,13 +2,13 @@ package uff.ic.lleme.tcc00328.s20202.exercicio.exercicio23.FernandoFilho;
 
 public class Item {
     private int quantidade;
-
+    private Produto produto;
+    
     public Item(){
         
     }
-    public Produto getProduto(Produto produto){
-        return produto;
-
+    public Produto getProduto(){
+        return this.produto;
     }
 
     public void setProduto(Produto produto){

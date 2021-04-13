@@ -9,6 +9,10 @@ import javax.swing.border.TitledBorder;
 
 public abstract class Funcao extends JPanel {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private String nomeFuncao;
     private Mostrador mostrador = null;
     private Botoeira botoeira = null;

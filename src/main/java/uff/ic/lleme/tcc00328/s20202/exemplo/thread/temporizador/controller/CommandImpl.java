@@ -8,7 +8,7 @@ public abstract class CommandImpl extends Command {
         super();
         receiver = t;
     }
-    private Temporizador receiver;
+    private final Temporizador receiver;
 
     public Temporizador getReceiver() {
         return receiver;

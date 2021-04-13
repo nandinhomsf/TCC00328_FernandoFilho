@@ -112,8 +112,8 @@ public class Restaurante {
 
     private static Prato getPrato(String nomeDoPrato) {
         for (Prato prato : pratos)
-            if (prato == null)
-                continue;
+            if (prato == null) {
+            }
             else if (prato.getNome().equals(nomeDoPrato))
                 return prato;
         return null;

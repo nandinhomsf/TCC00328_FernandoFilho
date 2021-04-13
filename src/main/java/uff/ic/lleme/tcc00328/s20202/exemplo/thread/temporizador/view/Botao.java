@@ -5,6 +5,11 @@ import java.awt.event.ActionListener;
 
 public abstract class Botao extends Button implements ActionListener {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public Botao(String nome) {
         super(nome);
         addActionListener(this);

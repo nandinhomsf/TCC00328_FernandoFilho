@@ -2,7 +2,7 @@ package uff.ic.lleme.tcc00328.s20202.exemplo.thread.threadSimplesRunnable;
 
 public class ThreadSimplesRunnable implements Runnable {
 
-    private Tarefa tarefa;
+    private final Tarefa tarefa;
 
     public ThreadSimplesRunnable(Tarefa tarefa) {
         this.tarefa = tarefa;

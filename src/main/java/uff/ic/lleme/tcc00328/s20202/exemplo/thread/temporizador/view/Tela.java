@@ -4,6 +4,11 @@ import javax.swing.JFrame;
 
 public abstract class Tela extends JFrame {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     public Tela(String nome) {
         super(nome);
         addWindowListener(new java.awt.event.WindowAdapter() {

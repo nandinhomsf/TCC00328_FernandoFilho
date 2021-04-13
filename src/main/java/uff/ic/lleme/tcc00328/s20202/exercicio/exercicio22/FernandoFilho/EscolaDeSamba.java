@@ -4,7 +4,7 @@ public class EscolaDeSamba {
 
     private String nome;
 
-    EscolaDeSamba(int chave, String nome) {
+    EscolaDeSamba(String nome) {
         setNome(nome);
         print();
     }

@@ -1,6 +1,7 @@
 package uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.view;
 
 import java.awt.event.ActionEvent;
+import java.io.Serial;
 
 import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.model.Temporizador;
 import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.controller.Command;
@@ -8,8 +9,9 @@ import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.controller.Reset
 
 public class BotaoReset extends BotaoTemp {
 
+    @Serial
     private static final long serialVersionUID = -1842445485507380512L;
-    private Command tempCommand;
+    private final Command tempCommand;
 
     public BotaoReset(Temporizador temporizador) {
         super("Reset", temporizador);

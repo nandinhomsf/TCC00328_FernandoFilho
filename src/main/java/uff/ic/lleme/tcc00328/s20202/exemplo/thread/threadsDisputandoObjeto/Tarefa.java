@@ -2,7 +2,7 @@ package uff.ic.lleme.tcc00328.s20202.exemplo.thread.threadsDisputandoObjeto;
 
 public class Tarefa {
 
-    public double[] numeros;
+    public final double[] numeros;
     public Double media = null;
     public Double soma = null;
 

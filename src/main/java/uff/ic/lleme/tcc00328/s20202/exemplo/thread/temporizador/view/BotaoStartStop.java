@@ -1,6 +1,7 @@
 package uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.view;
 
 import java.awt.event.ActionEvent;
+import java.io.Serial;
 
 import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.model.Temporizador;
 import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.controller.Command;
@@ -9,10 +10,11 @@ import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.controller.StopC
 
 public class BotaoStartStop extends BotaoTemp implements Observer {
 
+    @Serial
     private static final long serialVersionUID = 1753196423695635058L;
     private String operacao;
-    private Command startCommand;
-    private Command stopCommand;
+    private final Command startCommand;
+    private final Command stopCommand;
 
     public BotaoStartStop(Temporizador temporizador) {
         super("Start", temporizador);

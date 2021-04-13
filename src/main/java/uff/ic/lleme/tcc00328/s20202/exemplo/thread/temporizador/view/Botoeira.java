@@ -1,6 +1,7 @@
 package uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.view;
 
 import java.awt.GridLayout;
+import java.io.Serial;
 
 import javax.swing.JPanel;
 
@@ -8,9 +9,10 @@ import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.model.Temporizad
 
 public class Botoeira extends JPanel implements Element {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-    private BotaoTemp myControlerBotaoReset;
-    private BotaoTemp myControlerBotaoStartStop;
+    private final BotaoTemp myControlerBotaoReset;
+    private final BotaoTemp myControlerBotaoStartStop;
 
     public Botoeira(Temporizador temporizador) {
         setLayout(new GridLayout(1, 0));

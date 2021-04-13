@@ -26,8 +26,7 @@ public abstract class Temporizador extends SubjectImpl implements Runnable {
             notifyObservers();
             try {
                 Thread.sleep(intervaloThread);
-            } catch (InterruptedException e) {
-                // TODO
+            } catch (InterruptedException ignored) {
             }
         }
     }
@@ -50,7 +49,6 @@ public abstract class Temporizador extends SubjectImpl implements Runnable {
     }
 
     public void serviceReset() {
-        // TODO
     }
 
     protected Calendar getAgora() {

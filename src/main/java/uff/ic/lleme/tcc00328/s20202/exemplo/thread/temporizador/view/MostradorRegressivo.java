@@ -28,6 +28,5 @@ public class MostradorRegressivo extends Mostrador {
     }
 
     public void accept(Visitor visitor) {
-        // TODO Auto-generated method stub
     }
 }

@@ -26,7 +26,8 @@ public class AnalisadorMatricula {
                     String turmaCodigo = in.next();
 
                     Disciplina disciplina = pegarDisciplina(codigoDaDisciplina);
-                   Turma turma = disciplina.getTurma(turmaCodigo);
+                    assert disciplina != null;
+                    Turma turma = disciplina.getTurma(turmaCodigo);
                     if (turma != null) {
                         turma.adicionarAluno();
                         disciplina.adicionarAluno(estudante);

@@ -13,7 +13,7 @@ public class Main {
     public static Carnaval carnaval;
     public static void main(String[] args) {
         resgistrarNovoCarnaval();
-        registrarNovoJurado(qtescolas);
+        registrarNovoJurado();
         registrarNovaEscola(qtescolas);
         registrarNota();
         computarResultado();
@@ -23,7 +23,7 @@ public class Main {
         carnaval = new Carnaval(3, "2021");
     }
 
-    public static void registrarNovoJurado(int qtescolas) {
+    public static void registrarNovoJurado() {
         ArrayList<Jurado> jurados = new ArrayList<>();
         Jurado jurado1= new Jurado("Juan");
         Jurado jurado2 = new Jurado ("Maria");
@@ -33,9 +33,9 @@ public class Main {
 
     public static void registrarNovaEscola(int qtescolas) {
         escolas = new EscolaDeSamba[qtescolas];
-        EscolaDeSamba escola0= new EscolaDeSamba(0, "Samba do bom");
-        EscolaDeSamba escola1= new EscolaDeSamba(1, "Exalta samba");
-        EscolaDeSamba escola2= new EscolaDeSamba(2, "Beija-flor");
+        EscolaDeSamba escola0= new EscolaDeSamba("Samba do bom");
+        EscolaDeSamba escola1= new EscolaDeSamba("Exalta samba");
+        EscolaDeSamba escola2= new EscolaDeSamba("Beija-flor");
         escolas[0]=escola0;
         escolas[1]=escola1;
         escolas[2]=escola2;
@@ -46,7 +46,7 @@ public class Main {
         float[][] notas= new float[numquesitos][qtescolas];
         for (Jurado jurado : jurados) {
             for (int i = 0; i < numquesitos; i++) {
-                for (int j = 0; j < qtescolas; i++) {
+                for (int j = 0; j < qtescolas; j++) {
                     System.out.println(jurado.getNome() + ", digite a nota do quesito " + i + " para a escola " + escolas[j].getNome() + ":");
                     notas[i][j] = in.nextFloat();
                 }

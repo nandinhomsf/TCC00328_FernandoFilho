@@ -2,7 +2,7 @@ package uff.ic.lleme.tcc00328.s20202.exemplo.thread.threadsDisputandoObjeto;
 
 public class ThreadCalculaSoma extends Thread {
 
-    private Tarefa tarefa;
+    private final Tarefa tarefa;
 
     public ThreadCalculaSoma(Tarefa tarefa) {
         this.tarefa = tarefa;

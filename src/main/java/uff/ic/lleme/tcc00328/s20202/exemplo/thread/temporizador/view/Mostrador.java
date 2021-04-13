@@ -13,6 +13,10 @@ import uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.model.Temporizad
 
 public abstract class Mostrador extends JPanel implements Observer, Element {
 
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
     private Temporizador mySubjectTemporizador = null;
     private Point2D origemHoras;
     private Point2D origemCentesimos;

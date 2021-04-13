@@ -1,14 +1,16 @@
 package uff.ic.lleme.tcc00328.s20202.exemplo.thread.temporizador.view;
 
 import javax.swing.JFrame;
+import java.io.Serial;
 
 public class TelaPrincipal extends Tela {
 
+    @Serial
     private static final long serialVersionUID = 8094890868473495605L;
     private static TelaPrincipal instancia = null;
-    private FuncaoRelogio funcaoRelogio;
-    private FuncaoCronometro funcaoCronometro;
-    private FuncaoRegressivo funcaoRegressivo;
+    private final FuncaoRelogio funcaoRelogio;
+    private final FuncaoCronometro funcaoCronometro;
+    private final FuncaoRegressivo funcaoRegressivo;
 
     private TelaPrincipal() {
         super("Temporizador");

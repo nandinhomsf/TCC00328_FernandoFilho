@@ -4,7 +4,7 @@ import java.util.concurrent.Callable;
 
 public class CallableCalculaMedia implements Callable<Double> {
 
-    private double[] numeros;
+    private final double[] numeros;
 
     public CallableCalculaMedia(double[] numeros) {
         this.numeros = numeros;
