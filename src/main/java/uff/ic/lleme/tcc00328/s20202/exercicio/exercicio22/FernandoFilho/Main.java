@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static final int qtescolas=3;
     public static final int numquesitos=5;
-    public static ArrayList<Jurado> jurados;
+    public static ArrayList<Jurado> jurados = new ArrayList<>();
     public static EscolaDeSamba[] escolas;
     public static Carnaval carnaval;
     public static void main(String[] args) {
@@ -24,11 +24,10 @@ public class Main {
     }
 
     public static void registrarNovoJurado() {
-        ArrayList<Jurado> jurados = new ArrayList<>();
         Jurado jurado1= new Jurado("Juan");
         Jurado jurado2 = new Jurado ("Maria");
-        jurados.add(0,jurado1);
-        jurados.add(1,jurado2);
+        jurados.add(jurado1);
+        jurados.add(jurado2);
     }
 
     public static void registrarNovaEscola(int qtescolas) {
@@ -60,7 +59,6 @@ public class Main {
     public static void computarResultado() {
         float[][][] notas = new float[jurados.size()][numquesitos][qtescolas];
         float[] nota=new float[numquesitos];
-        float[] mediafinal= new float[4];
         float[] vencedor = new float[qtescolas];
         float[] vencedoraux = new float[qtescolas];
         for(int o=0;o<jurados.size();o++){
@@ -81,10 +79,7 @@ public class Main {
         for(int i=0;i<numquesitos;i++) {
             nota[i]=-nota[i]; 
         }
-        mediafinal[0]=nota[0];
-        mediafinal[1]=nota[1];
-        mediafinal[2]=nota[2];
-        mediafinal[3]=nota[3];
+
         for(int o=0;o<jurados.size();o++){
             for(int i=0;i<4;i++){
                 for(int j=0;j<qtescolas;j++){
@@ -108,7 +103,7 @@ public class Main {
             }
         }
     }
-    for(int i=0;i<qtescolas-1;i++){
+    for(int i=0;i<qtescolas;i++){
         System.out.println("Nota da escola "+escolas[i]+":"+vencedor[i]);
     }
     }

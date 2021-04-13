@@ -6,8 +6,8 @@ public class Generico<T> {
 
     public void inlcuir(T objeto){
         int a=0;
-        for(int i=0;i<objetos.length;i++){
-            if(objetos[i]!=null){
+        for (Object o : objetos) {
+            if (o != null) {
                 a++;
             }
         }
@@ -22,16 +22,16 @@ public class Generico<T> {
     public void remover(int x){
         int a=0,b=0;
         objetos[x]=null;
-        for(int i=0;i<objetos.length;i++){
-            if(objetos[i]!=null){
+        for (Object objeto : objetos) {
+            if (objeto != null) {
                 a++;
             }
         }
         if(a==objetos.length/2){
             Object[] novosObjetos = new Object[a/2];
-            for(int i=0;i<objetos.length;i++){
-                if(objetos[i]!=null){
-                    novosObjetos[b]=objetos[i];
+            for (Object objeto : objetos) {
+                if (objeto != null) {
+                    novosObjetos[b] = objeto;
                     b++;
                 }
             }
@@ -41,7 +41,7 @@ public class Generico<T> {
     }
 
     public  Object recuperar(int x){
-        return objetos[x];
+        return this.objetos[x];
     }
     
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static final String cordenada = "src/main/java/uff/ic/lleme/tcc00328/s20202/exercicios/exercicio21/FernandoFilho/";
+    public static final String cordenada = "src/main/java/uff/ic/lleme/tcc00328/s20202/exercicio/exercicio21/FernandoFilho/";
 
     public static final List<Matricula> listaDeMatriculas = new ArrayList<>();
     public static final List<Disciplina> listaDeDisciplinas = new ArrayList<>();

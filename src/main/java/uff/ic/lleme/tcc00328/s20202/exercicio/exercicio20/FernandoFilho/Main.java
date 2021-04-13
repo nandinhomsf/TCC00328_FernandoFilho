@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Main {
-    public static final String arquivo = "src/main/java/uff/ic/lleme/tcc00328/s20202/exercicios/exercicio20/FernandoFilho";
+    public static final String arquivo = "src/main/java/uff/ic/lleme/tcc00328/s20202/exercicio/exercicio20/FernandoFilho";
     public static final Cliente cliente = new Cliente();
     public static int num;
 
