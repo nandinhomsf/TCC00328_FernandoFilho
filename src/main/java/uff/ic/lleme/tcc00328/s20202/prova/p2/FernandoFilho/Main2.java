@@ -24,7 +24,7 @@ public class Main2 {
         notas.add(notas5);
         notas.add(notas6);
 
-        Executor executor = Executors.newFixedThreadPool(6);
+        ExecutorService executor = Executors.newFixedThreadPool(6);
         CompletionService<Double> completionService = new ExecutorCompletionService<>(executor);
 
         for(List<Double> nota : notas){
@@ -46,6 +46,7 @@ public class Main2 {
             }
         }
         System.out.println("Media final :"+media/6);
+        executor.shutdown();
 
     }
     public static List<Double> geraVetorAleatorio() {
