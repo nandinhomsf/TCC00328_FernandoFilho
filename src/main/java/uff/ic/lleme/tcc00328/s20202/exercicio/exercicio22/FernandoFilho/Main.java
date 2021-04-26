@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static final int qtescolas=3;
     public static final int numquesitos=5;
-    public static ArrayList<Jurado> jurados = new ArrayList<>();
+    public static final ArrayList<Jurado> jurados = new ArrayList<>();
     public static EscolaDeSamba[] escolas;
     public static Carnaval carnaval;
     public static void main(String[] args) {

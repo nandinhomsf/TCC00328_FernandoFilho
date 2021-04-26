@@ -9,9 +9,9 @@ public class ForkMean extends RecursiveAction {
      *
      */
     private static final long serialVersionUID = 1L;
-    private int inicio;
-    private int fim;
-    private List<Aluno> alunos;
+    private final int inicio;
+    private final int fim;
+    private final List<Aluno> alunos;
     protected static final int tamanhoJob = 100000;
 
     public ForkMean(List<Aluno> alunos) {
